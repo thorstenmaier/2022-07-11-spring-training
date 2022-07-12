@@ -1,9 +1,9 @@
 package com.trivadis.spring.user.service;
 
-import java.util.List;
-
 import com.trivadis.spring.user.domain.User;
 
+import java.util.List;
+
 public interface UserService {
-	public List<User> getAllUsers();
+    List<User> getAllUsers();
 }

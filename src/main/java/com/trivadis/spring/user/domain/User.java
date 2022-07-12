@@ -1,17 +1,25 @@
 package com.trivadis.spring.user.domain;
 
 public class User {
+
+	private Long id;
 	private String firstname;
 	private String lastname;
 
-	public User(String firstname, String lastname) {
-		super();
-		this.firstname = firstname;
-		this.lastname = lastname;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public User() {
-		super();
+	}
+
+	public User(String firstname, String lastname) {
+		this.firstname = firstname;
+		this.lastname = lastname;
 	}
 
 	public String getFirstname() {

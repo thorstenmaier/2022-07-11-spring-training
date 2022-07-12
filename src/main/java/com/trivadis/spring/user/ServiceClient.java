@@ -1,35 +1,13 @@
 package com.trivadis.spring.user;
 
-import javax.annotation.PostConstruct;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+import com.trivadis.spring.user.service.UserService;
 import org.springframework.stereotype.Component;
 
-import com.trivadis.spring.user.service.UserService;
-
 @Component
-public class ServiceClient implements CommandLineRunner {
+public class ServiceClient {
 
-	// 2.
-	@Autowired
-	private UserService us; // Field Injection
-
-	// 1.
-	public ServiceClient() {
-	}
-
-	// 3.
-	@PostConstruct
-	public void init() {
-		System.out.println(" ### PostConstruct");
-		us.getAllUsers().forEach(System.out::println);
-	}
-
-	// 4.
-	@Override
-	public void run(String... args) throws Exception {
-		System.out.println(" ### CommandLineRunner");
-		us.getAllUsers().forEach(System.out::println);
+	public ServiceClient(UserService userService) {
+		System.out.println(userService.hashCode());
+		userService.getAllUsers().forEach(System.out::println);
 	}
 }
